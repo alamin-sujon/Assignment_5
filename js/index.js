@@ -1,15 +1,15 @@
-//  const seats = document.querySelectorAll('.char-btn');
+
 const seats = document.getElementsByClassName('char-btn');
 let count = 0;
 let total = 0;
+const arr = [];
 for (let seat of seats) {
     seat.addEventListener('click', function (event) {
         const clickSeat = event.target;
-        // clickSeat.classList.add('bg-green-600')
-        // total += 550;
-        // console.log(total)
+        const clickSeatText = clickSeat.innerText ;
         count++;
         if (count > 4) {
+
             alert('You Cannot booked more than 4 seats')
         }
         else {
@@ -45,9 +45,10 @@ for (let seat of seats) {
 
 
             setElementById('grand-total', newTotal);
-            clickSeat.parentNode.setAttribute('disabled', true)
+
 
         }
+       
     })
 }
 
@@ -74,7 +75,7 @@ document.getElementById('apply').addEventListener('click', function () {
     const inputValue = input.value;
     if (inputValue === 'NEW15') {
         console.log('cl')
-        
+
         const valueG = getIntValue('grand-total');
         const newG = valueG * 0.85;
         const disG = valueG - newG;
@@ -95,7 +96,7 @@ document.getElementById('apply').addEventListener('click', function () {
     }
 
     else if (inputValue === 'Couple 20') {
-        
+
         const valueG = getIntValue('grand-total');
         const newG = valueG * 0.80;
         const disG = valueG - newG;
@@ -114,23 +115,23 @@ document.getElementById('apply').addEventListener('click', function () {
 
     }
     else {
-        alert('Invalid Discount');
+        alert('Invalid Coupon');
     }
 })
 
-document.getElementById('number').addEventListener('keyup',function(){
+document.getElementById('number').addEventListener('keyup', function () {
     const inputValue = document.getElementById('number');
     const btn = document.getElementById('next');
-    if(inputValue.value !== ''){
-            btn.removeAttribute('disabled');
+    if (inputValue.value !== '') {
+        btn.removeAttribute('disabled');
     }
 
 })
 
-document.getElementById('next').addEventListener('click', function(){
+document.getElementById('next').addEventListener('click', function () {
     const inputValue = document.getElementById('number');
     inputValue.value = '';
-    
+
     location.href = 'new.html';
 
 })
